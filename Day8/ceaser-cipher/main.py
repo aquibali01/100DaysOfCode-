@@ -49,6 +49,3 @@ while should_continue:
   if run_again == "no":
     print("Good bye")
     should_continue = False
-
-  
- 
