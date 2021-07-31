@@ -59,11 +59,11 @@ def check_transaction_Successful(drink, total_money):
          print("Sorry that's not enough money. Money Refunded.")
          return False
     elif total_money == MENU[drink]['cost']:
-        money = money + total_money
+        money = round(money + total_money, 2)
         return True
     elif total_money > MENU[drink]['cost']:
         change_money = round(total_money - MENU[drink]['cost'], 2)
-        money = money + total_money - change_money
+        money = round(money + total_money - change_money, 2)
         print(f"Here is ${change_money} dollars in change")
         return True
 
