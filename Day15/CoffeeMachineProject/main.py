@@ -36,6 +36,7 @@ is_coffee_serving = True
 
 
 def check_resource_sufficient(drink):
+    '''Returns True if resource are sufficient and False when resources aren't'''
     global depleted
     if resources['water'] > MENU[drink]['ingredients']['water']:
         if resources['milk'] > MENU[drink]['ingredients']['milk']:
@@ -52,6 +53,7 @@ def check_resource_sufficient(drink):
       return False
 
 def check_transaction_Successful(drink, total_money):
+    '''Returns True and return change if money is more than cost of drink and False if money is insufficient'''
     global money
     if total_money < MENU[drink]['cost']:
          print("Sorry that's not enough money. Money Refunded.")
@@ -60,16 +62,18 @@ def check_transaction_Successful(drink, total_money):
         money = money + total_money
         return True
     elif total_money > MENU[drink]['cost']:
-        change_money = total_money - MENU[drink]['cost']
+        change_money = round(total_money - MENU[drink]['cost'], 2)
         money = money + total_money - change_money
         print(f"Here is ${change_money} dollars in change")
         return True
 
 def process_coins(no_quarters, no_dimes, no_nickles, no_pennies):
+    '''Returns the total calculated from the coins calculated'''
     return (0.25 * no_quarters) + (0.1 * no_dimes) + (0.05 * no_nickles) + (0.01 * no_pennies)
 
 
 def make_coffee(drink):
+    '''Calculate resources and print desired coffee'''
     global resources
     resources['water'] = resources['water'] - MENU[drink]['ingredients']['water']
     resources['milk'] = resources['milk'] - MENU[drink]['ingredients']['milk']
