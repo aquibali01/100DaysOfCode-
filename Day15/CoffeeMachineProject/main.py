@@ -63,7 +63,7 @@ def check_transaction_Successful(drink, total_money):
         return True
     elif total_money > MENU[drink]['cost']:
         change_money = round(total_money - MENU[drink]['cost'], 2)
-        money = round(money + total_money - change_money, 2)
+        money = round(money + total_money - change_money,  2)
         print(f"Here is ${change_money} dollars in change")
         return True
 
