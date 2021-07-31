@@ -61,7 +61,7 @@ def check_transaction_Successful(drink, total_money):
         return True
     elif total_money > MENU[drink]['cost']:
         change_money = total_money - MENU[drink]['cost']
-        money = total_money - change_money
+        money = money + total_money - change_money
         print(f"Here is ${change_money} dollars in change")
         return True
 
@@ -98,7 +98,6 @@ while is_coffee_serving:
           no_nickles = int(input("How many nickles?: "))
           no_pennies = int(input("How many pennies?: "))
           total_money = process_coins(no_quarters, no_dimes, no_nickles, no_pennies)
-          print(total_money)
           is_transaction_successful = check_transaction_Successful(prompt,total_money)
 
           if is_transaction_successful:
