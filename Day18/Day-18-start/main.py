@@ -1,3 +1,4 @@
+import turtle
 from turtle import Turtle, Screen
 import random
 
@@ -23,11 +24,44 @@ timmy.pencolor("magenta")
 # Drawing triangle, square, pentagon, hexagon, heptagon, octagon, nanogon, decagon
 colours = ["cyan", "purple", "red", "blue", "green", "pink", "coral", "grey"]
 
-for sides in range(3, 11):
-    timmy.pencolor(random.choice(colours))
-    for _ in range(sides):
-        timmy.forward(100)
-        timmy.right(360/sides)
+# for sides in range(3, 11):
+#     timmy.pencolor(random.choice(colours))
+#     for _ in range(sides):
+#         timmy.forward(100)
+#         timmy.right(360/sides)
 
+turtle.colormode(255)
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b) #tuple
+
+# random walk
+
+# for _ in range(200):
+#     angles = [0,90,180,270]
+#     random_angle = random.choice(angles)
+#     timmy.pensize(10)
+#     timmy.forward(30)
+#     timmy.seth(random_angle)
+#     timmy.speed(30)
+#     # timmy.color(random.choice(colours))
+#     timmy.color(random_color())
+
+#  # DRAW A SPIROGRAPH
+
+timmy.speed("fastest")
+
+def draw_spirograph(size_of_gap):
+    for _ in range(int(360/ size_of_gap)):
+        timmy.color(random_color())
+
+        timmy.circle(100)
+        timmy.left(size_of_gap)
+        timmy.hideturtle()
+
+draw_spirograph(10)
 screen = Screen()
 screen.exitonclick()
